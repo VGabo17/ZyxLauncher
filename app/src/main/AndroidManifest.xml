@@ -8,6 +8,7 @@
         android:allowBackup="true"
         android:label="Zyx Launcher"
         android:supportsRtl="true"
+        android:hardwareAccelerated="true"
         android:theme="@style/Theme.AppCompat.Light">
 
         <activity
@@ -21,6 +22,7 @@
 
         <activity
             android:name=".auth.LoginActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="false" />
     </application>
 </manifest>
