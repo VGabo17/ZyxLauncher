@@ -12,7 +12,9 @@ import com.zyx.launcher.auth.MicrosoftAuthManager
 class MainActivity : AppCompatActivity() {
 
     private lateinit var authManager: MicrosoftAuthManager
+    private lateinit var tvUsername: TextView
     private lateinit var tvStatus: TextView
+    private lateinit var btnLogin: Button
 
     private val loginLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -20,7 +22,10 @@ class MainActivity : AppCompatActivity() {
         if (result.resultCode == Activity.RESULT_OK) {
             val code = result.data?.getStringExtra("EXTRA_CODE")
             if (code != null) {
-                tvStatus.text = "Código obtenido: ${code.take(12)}..."
+                tvUsername.text = "Código OAuth Recibido"
+                tvStatus.text = "Token: ${code.take(12)}..."
+                btnLogin.text = "CUENTA AUTENTICADA"
+                btnLogin.isEnabled = false
             }
         } else {
             val error = result.data?.getStringExtra("EXTRA_ERROR") ?: "Inicio cancelado"
@@ -33,9 +38,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         authManager = MicrosoftAuthManager(this)
+        tvUsername = findViewById(R.id.tvUsername)
         tvStatus = findViewById(R.id.tvStatus)
+        btnLogin = findViewById(R.id.btnLogin)
 
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
         btnLogin.setOnClickListener {
             loginLauncher.launch(authManager.createLoginIntent())
         }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lunar_bg">#0B0C10</color>
+    <color name="lunar_card">#151722</color>
+    <color name="lunar_card_stroke">#262A3B</color>
+    <color name="lunar_purple">#8A2BE2</color>
+    <color name="lunar_cyan">#00E5FF</color>
+    <color name="lunar_text_title">#FFFFFF</color>
+    <color name="lunar_text_sub">#9DA8C0</color>
+    <color name="lunar_success">#10B981</color>
+</resources>
