@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="Zyx Launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        
+        android:theme="@style/Theme.AppCompat.Light">
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -19,18 +12,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <!-- Filtro para capturar el callback de Microsoft OAuth -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="login.live.com"
-                    android:path="/oauth20_desktop.srf"
-                    android:scheme="https" />
-            </intent-filter>
         </activity>
     </application>
-
 </manifest>
