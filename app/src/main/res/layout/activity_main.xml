@@ -1,47 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121212"
-    android:gravity="center"
-    android:orientation="vertical"
     android:padding="24dp">
 
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ZYX LAUNCHER"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="Zyx Launcher"
         android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:letterSpacing="0.1" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="48dp"
-        android:text="Minecraft Java Edition for Android"
-        android:textColor="#AAAAAA"
-        android:textSize="14sp" />
-
-    <Button
-        android:id="@+id/btnLoginMicrosoft"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:backgroundTint="#00A4EF"
-        android:text="Iniciar sesión con Microsoft"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="32sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Estado: Esperando inicio de sesión"
-        android:textColor="#777777"
-        android:textSize="14sp" />
+        android:layout_below="@id/tvTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="Estado: No autenticado"
+        android:textColor="#AAAAAA"
+        android:textSize="15sp" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#0078D4"
+        android:text="Iniciar Sesión con Microsoft"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
