@@ -1,8 +1,8 @@
 package com.zyx.launcher.auth
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
-import androidx.browser.customtabs.CustomTabsIntent
 
 class MicrosoftAuthManager(private val context: Context) {
 
@@ -12,7 +12,7 @@ class MicrosoftAuthManager(private val context: Context) {
         const val SCOPE = "service::user.auth.xboxlive.com::msoffice"
     }
 
-    fun launchLoginWindow() {
+    fun createLoginIntent(): Intent {
         val authUrl = Uri.parse("https://login.live.com/oauth20_authorize.srf")
             .buildUpon()
             .appendQueryParameter("client_id", CLIENT_ID)
@@ -21,8 +21,10 @@ class MicrosoftAuthManager(private val context: Context) {
             .appendQueryParameter("scope", SCOPE)
             .appendQueryParameter("prompt", "select_account")
             .build()
+            .toString()
 
-        val customTabsIntent = CustomTabsIntent.Builder().build()
-        customTabsIntent.launchUrl(context, authUrl)
+        val intent = Intent(context, LoginActivity::class.java)
+        intent.putExtra("AUTH_URL", authUrl)
+        return intent
     }
 }
